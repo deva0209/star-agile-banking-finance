@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Repo Cloning') {
             steps {
-               git branch: 'main', url: 'https://github.com/MinimalKushal/Finance-Me-Project.git'
+               git branch: 'main', url: 'https://github.com/deva0209/star-agile-banking-finance'
             }
         }
         stage('Packaging repo') {
@@ -18,18 +18,18 @@ pipeline {
         }
 	stage('Build Docker Image') {
 		steps {
-			sh 'docker build -t minimalkushal/financeme .'	
+			sh 'docker build -t deva0209/financeme .'	
 		}
 	}
 	stage('Push image to Docker Hub') {
 	     steps {
 		withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'dockerhubpass', usernameVariable: 'dockerhubuser')]) {
 			sh "docker login -u ${env.dockerhubuser} -p ${env.dockerhubpass}"
-			sh 'docker push minimalkushal/financeme'
+			sh 'docker push deva0209/financeme'
 		}
 	     }
 	}
-	stage('Execute the Terraform File') {
+	/*stage('Execute the Terraform File') {
 		steps {
 			sh 'sudo chmod 600 Kushal.pem'
 			sh 'terraform init'
@@ -37,6 +37,6 @@ pipeline {
 			sh 'terraform plan'
 			sh 'terraform apply -auto-approve'
 		}
-	}
+	}*/
   }
 }
