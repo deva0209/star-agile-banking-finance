@@ -9,7 +9,7 @@ resource "aws_instance" "test-server" {
     private_key = file("./gnan.pem")
     host     = self.public_ip
   }
-  provisioner "remote-exec" {
+provisioner "remote-exec" {
     inline = [ "echo 'wait to start instance' "]
   }
   tags = {
