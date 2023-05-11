@@ -20,5 +20,4 @@ resource "aws_instance" "test-server" {
 		}
   provisioner "local-exec" {
   command = "ansible-playbook /var/lib/jenkins/workspace/finance/serverfiles/bankingplaybook.yml"
-  } 
 }
