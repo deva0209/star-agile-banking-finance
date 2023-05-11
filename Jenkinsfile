@@ -18,14 +18,14 @@ pipeline {
         }
 	stage('Build Docker Image') {
 		steps {
-			sh 'docker build -t deva0209/financeme .'	
+			sh 'docker build -t deva0209/financeme:latest .'	
 		}
 	}
 	stage('Push image to Docker Hub') {
 	     steps {
-		withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'dockerhubpass', usernameVariable: 'dockerhubuser')]) {
-			sh "docker login -u ${env.dockerhubuser} -p ${env.dockerhubpass}"
-			sh 'docker push deva0209/financeme'
+		withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USER')]) {
+			sh "docker login -u ${env.DOCKERHUB_USER} -p ${env.DOCKERHUB_PASSWORD}"
+			sh 'docker push deva0209/financeme:latest'
 		}
 	     }
 	}
