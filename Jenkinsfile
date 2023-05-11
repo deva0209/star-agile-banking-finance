@@ -31,11 +31,11 @@ pipeline {
 	}
 	stage('Execute the Terraform File') {
 		steps {
-			sh 'chmod 600 gnan.pem'
+			sh 'sudo chmod 600 gnan.pem'
 			sh 'terraform init'
 			sh 'terraform validate'
 			sh 'terraform plan'
-			sh 'terraform apply -auto-approve'
+			sh 'terraform apply --auto-approve'
 			
 		}
 	}
