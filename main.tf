@@ -1,11 +1,11 @@
 resource "aws_instance" "test-server" {
-  ami           = "ami-03a933af70fa97ad2" 
+  ami           = "ami-0d683450f458cdbaa" 
   instance_type = "t2.micro"
   key_name = "gnan"
   vpc_security_group_ids= ["sg-09e2c8be5cc7b0db2"]
   connection {
     type     = "ssh"
-    user     = "ec2"
+    user     = "ec2-user"
     private_key = file("~/.ssh/gnan.pem")
     host     = self.public_ip
   }
