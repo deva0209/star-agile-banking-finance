@@ -29,14 +29,15 @@ pipeline {
 		}
 	     }
 	}
-	/*stage('Execute the Terraform File') {
+	stage('Execute the Terraform File') {
 		steps {
-			sh 'sudo chmod 600 Kushal.pem'
+			sh 'sudo chmod 600 gnan.pem'
 			sh 'terraform init'
 			sh 'terraform validate'
 			sh 'terraform plan'
 			sh 'terraform apply -auto-approve'
+			
 		}
-	}*/
+	}
   }
 }
