@@ -31,7 +31,7 @@ pipeline {
 	}
 	stage('Execute the Terraform File') {
 		steps {
-			sh 'echo "<123456>" | sudo -S chmod 600 gnan.pem'
+			sh 'echo "123456" | sudo -S chmod 600 gnan.pem'
 			sh 'terraform init'
 			sh 'terraform validate'
 			sh 'terraform plan'
