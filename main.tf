@@ -5,7 +5,7 @@ resource "aws_instance" "test-server" {
   vpc_security_group_ids= ["sg-09e2c8be5cc7b0db2"]
   connection {
     type     = "ssh"
-    user     = "ec2-user"
+    user     = "ec2"
     private_key = file("./gnan.pem")
     host     = self.public_ip
   }
