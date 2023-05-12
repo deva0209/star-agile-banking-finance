@@ -9,4 +9,4 @@
   - name: Docker Start
     command: sudo systemctl start docker
   - name: Deploy Docker Container
-    command: docker run -itd -p 8082:8081 --name financeme deva0209/financeme:latest
+    command: docker run -itd -p 8081:8081 --name financeme deva0209/financeme:latest
