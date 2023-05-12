@@ -19,9 +19,6 @@ provisioner "remote-exec" {
         command = " echo ${aws_instance.test-server.public_ip} > inventory "
 		}
   provisioner "local-exec" {
-  command =<<-EOT
-	  ansible-playbook /var/lib/jenkins/workspace/star-agile-banking-finance
-/playbook.yml
-	  EOT
+  command = "ansible-playbook /var/lib/jenkins/workspace/star-agile-banking-finance/playbook.yml"
 }
 }
