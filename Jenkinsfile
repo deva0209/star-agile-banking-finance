@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Repo Cloning') {
             steps {
-               git branch: 'master', url: 'https://github.com/deva0209/star-agile-banking-finance'
+               git branch: 'main', url: 'https://github.com/deva0209/star-agile-banking-finance'
             }
         }
         stage('Packaging repo') {
